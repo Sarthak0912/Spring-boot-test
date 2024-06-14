@@ -32,8 +32,7 @@ public class SchoolServiceImpl implements SchoolService {
     @Override
     public SchoolDto saveSchool(SchoolDto schoolDto) {
        School school = SchoolMapper.maptoSchool(schoolDto,"Admin");
-        schoolRepository.save(school);
-        schoolDto.setId(school.getId());
+        schoolDto.setId(schoolRepository.save(school).getId());
         return schoolDto;
     }
 

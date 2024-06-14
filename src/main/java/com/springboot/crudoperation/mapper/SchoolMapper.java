@@ -19,7 +19,7 @@ public class SchoolMapper {
 
     public static SchoolDto mapToSchoolDto(School school){
 
-        return SchoolDto.builder().name(school.getName()).id(school.getId()).address(school.getAddress()).dressCodeColors(school.getDressCodeColors()).createdBy(school.getCreatedBy()).updatedBy(school.getUpdatedBy()).createdDate(school.getCreatedDate()).updatedDate(school.getUpdatedDate()).classRooms(convertEntityToClassRoomDto(school.getClassRoomList())).build();
+        return SchoolDto.builder().name(school.getName()).id(school.getId()).address(school.getAddress()).dressCodeColors(school.getDressCodeColors()).createdBy(school.getCreatedBy()).updatedBy(school.getUpdatedBy()).createdDate(school.getCreatedDate()).updatedDate(school.getUpdatedDate()).build();
     }
 
 
@@ -30,7 +30,6 @@ public class SchoolMapper {
         school.setDressCodeColors(schoolDto.getDressCodeColors());
         school.setCreatedDate(Date.valueOf(LocalDate.now()));
         school.setCreatedBy(user);
-        school.setClassRoomList(convertClassRoomDtoToEntity(schoolDto.getClassRooms()));
         return school;
     }
 
